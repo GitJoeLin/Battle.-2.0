@@ -36,6 +36,7 @@ class Screen_character_selector (tkinter.Frame):
         tkinter.Label(self, text = "Hit Points").grid(row = 1, column = 2, sticky = tkinter.W)
         tkinter.Label(self, text="Dexterity").grid(row = 1, column = 3, sticky = tkinter.W)
         tkinter.Label(self, text="Strength").grid(row = 1, column = 4, sticky = tkinter.W)
+        tkinter.Label(self, text="Ability").grid(row=1, column=5, sticky=tkinter.W)
         self.character = tkinter.StringVar()
         self.character.set(None)
         row = 2

@@ -6,7 +6,7 @@ import random
  
 class Character (object):
    
-    def __init__ (self, name, hit_points, strength, dexterity, small_image, large_image):
+    def __init__ (self, name, hit_points, strength, dexterity, small_image, large_image, attack1, attack2, attack3, attack4):
         ''' 
         Set the instance variables of name, hit_points, strength, and dexerity
         based upon the passed parameters. 
@@ -17,6 +17,10 @@ class Character (object):
         self.dexterity = dexterity
         self.small_image = small_image
         self.large_image = large_image
+        self.attack1 = attack1
+        self.attack2 = attack2
+        self.attack3 = attack3
+        self.attack4 = attack4
         
     def attack (self, enemy):
         ''' 
