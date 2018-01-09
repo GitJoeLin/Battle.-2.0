@@ -6,7 +6,7 @@ import random
  
 class Character (object):
    
-    def __init__ (self, name, hit_points, strength, dexterity, small_image, large_image, attack1, attack2, attack3, attack4):
+    def __init__ (self, name, hit_points, strength, dexterity, ability, small_image, large_image, attack1, attack2, attack3, attack4):
         ''' 
         Set the instance variables of name, hit_points, strength, and dexerity
         based upon the passed parameters. 
@@ -15,6 +15,7 @@ class Character (object):
         self.hit_points = hit_points
         self.strength = strength
         self.dexterity = dexterity
+        self.ability = ability
         self.small_image = small_image
         self.large_image = large_image
         self.attack1 = attack1
@@ -70,7 +71,7 @@ class CharacterList (object):
         for line in text_file:
             line = line.strip()
             my_fields = line.split(",")
-            character = Character (my_fields[0], int(my_fields[1]), int(my_fields[2]), int(my_fields[3]), my_fields[4], my_fields[5])
+            character = Character (my_fields[0], int(my_fields[1]), int(my_fields[2]), int(my_fields[3]), my_fields[4], my_fields[5], my_fields[6])
             self.character_list.append(character)
     
     def print_list (self):

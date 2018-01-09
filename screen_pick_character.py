@@ -33,13 +33,16 @@ class Screen_character_selector (tkinter.Frame):
 
             w.grid (ADD PARAMETERS HERE)
         '''
-        tkinter.Label(self, text = "Hit Points").grid(row = 1, column = 2, sticky = tkinter.W)
-        tkinter.Label(self, text="Dexterity").grid(row = 1, column = 3, sticky = tkinter.W)
-        tkinter.Label(self, text="Strength").grid(row = 1, column = 4, sticky = tkinter.W)
-        tkinter.Label(self, text="Ability").grid(row=1, column=5, sticky=tkinter.W)
+
+        tkinter.Label(self, text = "Hit Points").grid(row = 1, column = 0, sticky = tkinter.W)
+        tkinter.Label(self, text="Dexterity").grid(row = 2, column = 0, sticky = tkinter.W)
+        tkinter.Label(self, text="Strength").grid(row = 3, column = 0, sticky = tkinter.W)
+        tkinter.Label(self, text="Ability").grid(row=4, column=0, sticky=tkinter.W)
+
         self.character = tkinter.StringVar()
         self.character.set(None)
-        row = 2
+
+        column = 1
         value = 0
         for c in self.char_list.character_list:
             tkinter.Radiobutton(self, text = c.name, variable = self.character, value = value)\
@@ -48,10 +51,11 @@ class Screen_character_selector (tkinter.Frame):
             w = tkinter.Label(self, image=imageSmall,)
             w.photo = imageSmall
             w.grid(row = row, column = 1, sticky = tkinter.W)
-            tkinter.Label(self, text = c.hit_points).grid(row = row, column = 2)
-            tkinter.Label(self, text = c.dexterity).grid(row = row, column = 3)
-            tkinter.Label(self, text = c.strength).grid(row = row, column = 4)
-            row += 1
+            tkinter.Label(self, text = c.hit_points).grid(row = 0, column = column)
+            tkinter.Label(self, text = c.dexterity).grid(row = 0, column = column)
+            tkinter.Label(self, text = c.strength).grid(row = 0, column = column)
+            tkinter.Label(self, text= c.ability).grid(row = 0, column = column)
+            column += 1
             value += 1
         tkinter.Button(self, text = "Continue to Battle!", command = self.continue_clicked, fg = "red", bg = "black")\
             .grid(row = 6, column = 5)
