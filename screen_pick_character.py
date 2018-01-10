@@ -45,8 +45,7 @@ class Screen_character_selector (tkinter.Frame):
         column = 1
         value = 0
         for c in self.char_list.character_list:
-            tkinter.Radiobutton(self, text = c.name, variable = self.character, value = value)\
-                .grid(row = row, column = 0, sticky = tkinter.W)
+            tkinter.Radiobutton(self, text = c.name, variable = self.character, value = value).grid(row = row, column = 0, sticky = tkinter.W)
             imageSmall = tkinter.PhotoImage(file="images/" + c.small_image)
             w = tkinter.Label(self, image=imageSmall,)
             w.photo = imageSmall
@@ -57,8 +56,7 @@ class Screen_character_selector (tkinter.Frame):
             tkinter.Label(self, text= c.ability).grid(row = 0, column = column)
             column += 1
             value += 1
-        tkinter.Button(self, text = "Continue to Battle!", command = self.continue_clicked, fg = "red", bg = "black")\
-            .grid(row = 6, column = 5)
+        tkinter.Button(self, text = "Continue to Battle!", command = self.continue_clicked, fg = "red", bg = "black").grid(row = 6, column = 5)
  
     def continue_clicked(self):
         ''' This method is called when the Next button is clicked. 

@@ -71,7 +71,7 @@ class CharacterList (object):
         for line in text_file:
             line = line.strip()
             my_fields = line.split(",")
-            character = Character (my_fields[0], int(my_fields[1]), int(my_fields[2]), int(my_fields[3]), my_fields[4], my_fields[5], my_fields[6])
+            character = Character (my_fields[0], int(my_fields[1]), int(my_fields[2]), int(my_fields[3]), my_fields[4], my_fields[5], my_fields[6], my_fields[7], my_fields[8], my_fields[9], my_fields[10])
             self.character_list.append(character)
     
     def print_list (self):
