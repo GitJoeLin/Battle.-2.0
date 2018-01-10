@@ -45,11 +45,11 @@ class Screen_character_selector (tkinter.Frame):
         column = 1
         value = 0
         for c in self.char_list.character_list:
-            tkinter.Radiobutton(self, text = c.name, variable = self.character, value = value).grid(row = row, column = 0, sticky = tkinter.W)
-            imageSmall = tkinter.PhotoImage(file="images/" + c.small_image)
+            tkinter.Radiobutton(self, text = "", variable=self.character, value=value).grid(row = 0, column = 0, sticky = tkinter.W)
+            imageSmall = tkinter.PhotoImage(file="images/" + c.small_image);
             w = tkinter.Label(self, image=imageSmall,)
             w.photo = imageSmall
-            w.grid(row = row, column = 1, sticky = tkinter.W)
+            w.grid(row = 0, column = 1, sticky = tkinter.W)
             tkinter.Label(self, text = c.hit_points).grid(row = 0, column = column)
             tkinter.Label(self, text = c.dexterity).grid(row = 0, column = column)
             tkinter.Label(self, text = c.strength).grid(row = 0, column = column)
