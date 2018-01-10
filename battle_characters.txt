@@ -1,4 +1,4 @@
-Troll,160,75,30,troll_100.gif,troll_300.gif
-Elf,90,40,80,elf_100.gif,elf_300.gif
-Dwarf,110,45,65,dwarf_100.gif,dwarf_300.gif
-Human,100,50,50,human_100.gif,human_300.gif
+Orc,280,85,20,orc_100.gif,orc_300.gif
+Elf,160,60,90,elf_100.gif,elf_300.gif
+Dwarf,220,70,45,dwarf_100.gif,dwarf_300.gif
+Human,200,60,65,human_100.gif,human_300.gif
