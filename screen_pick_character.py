@@ -31,7 +31,7 @@ class Screen_character_selector (tkinter.Frame):
                          )
             w.photo = imageSmall
 
-            w.grid (ADD PARAMETERS HERE)
+            w.grid (ADD PARAMETERS HERE) hi
         '''
 
         tkinter.Label(self, text = "Hit Points").grid(row = 1, column = 0, sticky = tkinter.W)
