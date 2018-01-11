@@ -31,29 +31,36 @@ class Screen_character_selector (tkinter.Frame):
                          )
             w.photo = imageSmall
 
-            w.grid (ADD PARAMETERS HERE)
+            w.grid (ADD PARAMETERS HERE) hi
         '''
-        tkinter.Label(self, text = "Hit Points").grid(row = 1, column = 2, sticky = tkinter.W)
-        tkinter.Label(self, text="Dexterity").grid(row = 1, column = 3, sticky = tkinter.W)
-        tkinter.Label(self, text="Strength").grid(row = 1, column = 4, sticky = tkinter.W)
+
+        tkinter.Label(self, text = "Hit Points").grid(row = 1, column = 0, sticky = tkinter.W)
+        tkinter.Label(self, text="Dexterity").grid(row = 2, column = 0, sticky = tkinter.W)
+        tkinter.Label(self, text="Strength").grid(row = 3, column = 0, sticky = tkinter.W)
+        tkinter.Label(self, text="Ability").grid(row=4, column=0, sticky=tkinter.W)
+
         self.character = tkinter.StringVar()
         self.character.set(None)
-        row = 2
+
+        column = 1
         value = 0
+        otherthing = 0
+        anotherthing = 1
         for c in self.char_list.character_list:
-            tkinter.Radiobutton(self, text = c.name, variable = self.character, value = value)\
-                .grid(row = row, column = 0, sticky = tkinter.W)
-            imageSmall = tkinter.PhotoImage(file="images/" + c.small_image)
+            tkinter.Radiobutton(self, text = c.name, variable=self.character, value=value).grid(row = 0, column = otherthing, sticky = tkinter.W)
+            imageSmall = tkinter.PhotoImage(file="images/"+ c.small_image);
             w = tkinter.Label(self, image=imageSmall,)
             w.photo = imageSmall
-            w.grid(row = row, column = 1, sticky = tkinter.W)
-            tkinter.Label(self, text = c.hit_points).grid(row = row, column = 2)
-            tkinter.Label(self, text = c.dexterity).grid(row = row, column = 3)
-            tkinter.Label(self, text = c.strength).grid(row = row, column = 4)
-            row += 1
+            w.grid(row = 0, column = anotherthing, sticky = tkinter.W)
+            tkinter.Label(self, text = c.hit_points).grid(row = 1, column = anotherthing)
+            tkinter.Label(self, text = c.dexterity).grid(row = 2, column = anotherthing)
+            tkinter.Label(self, text = c.strength).grid(row = 3, column = anotherthing)
+            tkinter.Label(self, text= c.ability).grid(row = 4, column = anotherthing)
+            column += 1
             value += 1
-        tkinter.Button(self, text = "Continue to Battle!", command = self.continue_clicked, fg = "red", bg = "black")\
-            .grid(row = 4, column = 5)
+            otherthing +=2
+            anotherthing +=2
+        tkinter.Button(self, text = "Continue to Battle!", command = self.continue_clicked, fg = "red", bg = "black").grid(row = 7, column = 7)
  
     def continue_clicked(self):
         ''' This method is called when the Next button is clicked. 
