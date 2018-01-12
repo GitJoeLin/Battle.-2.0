@@ -6,67 +6,72 @@ import random
  
 class Character (object):
    
-    def __init__ (self, name, hit_points, strength, dexterity, small_image, large_image):
-        ''' 
+    def __init__ (self, name, hit_points, strength, dexterity, ability, small_image, large_image, attack1, attack2, attack3, attack4):
+        '''
         Set the instance variables of name, hit_points, strength, and dexerity
-        based upon the passed parameters. 
+        based upon the passed parameters.
         '''
         self.name = name
         self.hit_points = hit_points
         self.strength = strength
         self.dexterity = dexterity
+        self.ability = ability
         self.small_image = small_image
         self.large_image = large_image
-        
+        self.attack1 = attack1
+        self.attack2 = attack2
+        self.attack3 = attack3
+        self.attack4 = attack4
+
     def attack (self, enemy):
-        ''' 
-        In this method, self attempts to attack the enemy.  First, the method determines if 
-        a hit occurs using randomness.  If the opponents had the same dexterity, the probability 
+        '''
+        In this method, self attempts to attack the enemy.  First, the method determines if
+        a hit occurs using randomness.  If the opponents had the same dexterity, the probability
         of a hit would be 50%.  If the dexterity of self is higher than that of enemy, the probability
         of a hit increases.  If the dexterity of self is lower than that of enemy, the probability
-        of a hit decreases.  The exact implementation of this probability is up to you, but 
+        of a hit decreases.  The exact implementation of this probability is up to you, but
         make it as fair as possible.
-        
+
         If a hit occurs, hit_points damage should be a random number between 0 and the self.strength.
-        
+
         The method should then print the result of the attack to the user.
         '''
-        
+
         total_dex = self.dexterity + enemy.dexterity
-        hit_attempt = random.randrange(0,total_dex)        
+        hit_attempt = random.randrange(0,total_dex)
         if (hit_attempt<=self.dexterity):
-            damage = random.randrange (self.strength - 30, self.strength)
+            damage = random.randrange (0, self.strength)
             enemy.hit_points -= damage
             result = self.name + " hits " + enemy.name +" causing " + str(damage) + " damage."
         else:
             result = self.name + " misses " + enemy.name + "."
-                            
+
         return result
-        
+
     def die (self):
         ''' Prints a death message. '''
         print (self.name + ": Ahhhhh.. too much damage!  I have died.")
-        
+
     def __str__ (self):
         ''' Prints the name, hit points, strength, and dexterity of the object. '''
-        return self.name + "; HP: " + str(self.hit_points) + "; Strength: " + str(self.strength) + "; Dexterity: " + str(self.dexterity)        
-        
+        return self.name + "; HP: " + str(self.hit_points) + "; Strength: " + str(self.strength) + "; Dexterity: " + str(self.dexterity)
+
 class CharacterList (object):
     def __init__ (self, file_name):
-        ''' 
+        '''
         This method intializes a new CharacterList object by loading
-        a list of Characters from file_name.  
+        a list of Characters from file_name.
         The file is in comma, separated format.  The fields of the file include:
             <Name>,<Hit Points>,<Strength>,<Dexterity>
         '''
         self.character_list = []
-        
+
         text_file = open(file_name,"r")
-        
+
         for line in text_file:
             line = line.strip()
-            my_fields = line.split(",")
-            character = Character (my_fields[0], int(my_fields[1]), int(my_fields[2]), int(my_fields[3]), my_fields[4], my_fields[5])
+            my_fields = line.split(", ")
+            character = Character (my_fields[0], int(my_fields[1]), int(my_fields[2]), int(my_fields[3]), my_fields[4], my_fields[5], my_fields[6], my_fields[7], my_fields[8], my_fields[9], my_fields[10])
             self.character_list.append(character)
     
     def print_list (self):
