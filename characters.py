@@ -40,7 +40,7 @@ class Character (object):
         total_dex = self.dexterity + enemy.dexterity
         hit_attempt = random.randrange(0,total_dex)
         if (hit_attempt<=self.dexterity):
-            damage = random.randrange (0, self.strength)
+            damage = random.randrange (self.strength - 20, self.strength)
             enemy.hit_points -= damage
             result = self.name + " hits " + enemy.name +" causing " + str(damage) + " damage."
         else:
