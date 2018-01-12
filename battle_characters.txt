@@ -1,5 +1,5 @@
-Orc, 420, 90, 35, Exhaustion, orc_100.gif, orc_300.gif, Stomp, Club Smash, Bite, War Cry
-Elf, 350, 45, 90, Super Speed, elf_100.gif, elf_300.gif, Bow and Arrow, Dash, Shank, Sneak Attack
-Dwarf, 400, 60, 60, Armor, dwarf_100.gif, dwarf_300.gif, Stab, Grapple, Axe Blow, Headbutt
-Knight, 380, 55, 70, Heal, human_100.gif, human_300.gif, Punch, Shield Bash, Shield Tackle, Sword Slash
+Orc, 420, 90, 35, Exhaustion, orc_100.gif, orc_300.gif, Battle Hammer, Rage, Bite, War Cry
+Elf, 350, 45, 90, Super Speed, elf_100.gif, elf_300.gif, Bow and Arrow, Back Stab, Shank, Sneak Attack
+Dwarf, 400, 60, 60, Armor, dwarf_100.gif, dwarf_300.gif, Axe Chop, Tackle, Hammer Blow, Headbutt
+Knight, 380, 55, 70, Heal, human_100.gif, human_300.gif, Sword Slash, Shield Bash, Dagger Stab, Chivalry
 Wizard, 300, 25, 100, Arcane Magic, wizard_100.gif, wizard_300.gif, Staff Swing, Arcane Shot, Fire Blast, Electrify
