@@ -34,10 +34,12 @@ class Screen_character_selector (tkinter.Frame):
             w.grid (ADD PARAMETERS HERE) hi
         '''
 
-        tkinter.Label(self, text = "Hit Points").grid(row = 1, column = 0, sticky = tkinter.W)
-        tkinter.Label(self, text="Dexterity").grid(row = 2, column = 0, sticky = tkinter.W)
-        tkinter.Label(self, text="Strength").grid(row = 3, column = 0, sticky = tkinter.W)
-        tkinter.Label(self, text="Ability").grid(row=4, column=0, sticky=tkinter.W)
+        self.font = ("Cooper Black", 24)
+
+        tkinter.Label(self, text = "Hit Points", font=self.font).grid(row = 1, column = 0, sticky = tkinter.W)
+        tkinter.Label(self, text="Dexterity", font=self.font).grid(row = 2, column = 0, sticky = tkinter.W)
+        tkinter.Label(self, text="Strength",font=self.font).grid(row = 3, column = 0, sticky = tkinter.W)
+        tkinter.Label(self, text="Ability",font=self.font).grid(row=4, column=0, sticky=tkinter.W)
 
         self.character = tkinter.StringVar()
         self.character.set(None)

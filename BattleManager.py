@@ -23,6 +23,7 @@ class Battle_Manager(object):
         self.root.title("Select your character!")
         self.char_sel = Screen_character_selector(self.root, self.character_choices, self.onclose_character_selector)
 
+
     def onclose_character_selector(self, selected_char):
         ''' This method is called when the Screen_character_selector closes.
             selected_char should contain the index in the list of the character selected by the user.
@@ -44,7 +45,8 @@ class Battle_Manager(object):
         self.root.title("The Combatants!")
 
         # Creates the "Prepare to Battle" frame
-        self.prepare = Screen_prepare_to_battle(self.root, self.player, self.computer, self.onclose_prepare_to_battle)
+        self.prepare = Screen_prepare_to_battle(self.root, self.player, self.computer, self.onclose_prepare_to_battle, self.onback_prepare_to_battle)
+
 
     def onclose_prepare_to_battle(self):
         '''
@@ -59,6 +61,13 @@ class Battle_Manager(object):
 
         # Create the Battle frame
         self.battle_screen = Screen_Battle(self.root, self.player, self.computer, self.onclose_battle)
+
+
+    def onback_prepare_to_battle(self):
+        self.character_choices = CharacterList("battle_characters.txt")
+        self.prepare.destroy()
+        self.root.title("Select your character!")
+        self.char_sel = Screen_character_selector(self.root, self.character_choices, self.onclose_character_selector)
 
     def onclose_battle(self):
         ''' This method is called after the battle is over.  This method causes the program to exit. '''

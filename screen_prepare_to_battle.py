@@ -1,7 +1,7 @@
 import tkinter
 
 class Screen_prepare_to_battle (tkinter.Frame):
-    def __init__ (self, master, player1, player2, call_on_next):
+    def __init__ (self, master, player1, player2, call_on_next, call_on_back):
         super(Screen_prepare_to_battle, self).__init__(master)
 
         # Save player character object references
@@ -10,6 +10,7 @@ class Screen_prepare_to_battle (tkinter.Frame):
         
         # Save the method reference to which we return control after the player hits "Next"
         self.call_on_selected = call_on_next
+        self.call_on_switch = call_on_back
         
         self.create_widgets()
         self.grid()
@@ -32,8 +33,8 @@ class Screen_prepare_to_battle (tkinter.Frame):
         tkinter.Label(self, text = str(self.player2.hit_points) + " HP").grid(row = 2, column = 1)
         tkinter.Label(self, text = str(self.player2.dexterity) + " Dexterity").grid(row = 3, column = 1)
         tkinter.Label(self, text = str(self.player2.strength) + " Strength").grid(row = 4, column = 1)
-        tkinter.Button(self, text = "Let's Battle!", command = self.continue_clicked, fg = "red", bg = "black") \
-            .grid(row = 5, column = 1, sticky = tkinter.E)
+        tkinter.Button(self, text = "Let's Battle!", command = self.continue_clicked, fg = "red", bg = "black").grid(row = 5, column = 1, sticky = tkinter.E)
+        tkinter.Button(self, text="Back", command=self.back_clicked).grid(row = 0, column = 0)
         '''
         This method creates all of the widgets the prepare to battle page.
         '''
@@ -41,5 +42,8 @@ class Screen_prepare_to_battle (tkinter.Frame):
         ''' This method is called when the Battle button is clicked. 
             It passes control back to the callback method. '''         
         self.call_on_selected()
+
+    def back_clicked(self):
+        self.call_on_switch()
             
         
