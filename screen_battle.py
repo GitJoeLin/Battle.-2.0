@@ -22,16 +22,16 @@ class Screen_Battle (tkinter.Frame):
         '''
         This method creates all of the widgets for the battle page.
         '''
-        self.button = tkinter.Button(self, text = "Attack", command = self.attack_clicked, fg = "red", bg = "black") \
-            .grid(row = 0, column = 0)
-        self.atk1 = tkinter.Label(self, text = "")
+        self.font = ("Apple Chancery", 24)
+        self.button = tkinter.Button(self, text = "Attack", command = self.attack_clicked, fg = "red", bg = "black").grid(row = 0, column = 0)
+        self.atk1 = tkinter.Label(self, text = self.player1.attack1)
         self.atk1.grid(row = 1, column = 1)
         self.atk2 = tkinter.Label(self, text = "")
         self.atk2.grid(row = 2, column = 1)
         self.end = tkinter.Label(self, text = "")
         self.end.grid(row = 3, column = 1)
-        tkinter.Label(self, text = "You").grid(row = 5, column = 0)
-        tkinter.Label(self, text = "Computer").grid(row = 5, column = 1)
+        tkinter.Label(self, text = "You", font=self.font).grid(row = 5, column = 0)
+        tkinter.Label(self, text = "Computer",font=self.font).grid(row = 5, column = 1)
         imageLarge = tkinter.PhotoImage(file="images/" + self.player1.large_image)
         w = tkinter.Label(self, image=imageLarge, )
         w.photo = imageLarge

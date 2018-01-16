@@ -34,12 +34,14 @@ class Screen_character_selector (tkinter.Frame):
             w.grid (ADD PARAMETERS HERE) hi
         '''
 
-        self.font = ("Cooper Black", 24)
 
-        tkinter.Label(self, text = "Hit Points", font=self.font).grid(row = 1, column = 0, sticky = tkinter.W)
-        tkinter.Label(self, text="Dexterity", font=self.font).grid(row = 2, column = 0, sticky = tkinter.W)
-        tkinter.Label(self, text="Strength",font=self.font).grid(row = 3, column = 0, sticky = tkinter.W)
-        tkinter.Label(self, text="Ability",font=self.font).grid(row=4, column=0, sticky=tkinter.W)
+        self.font = ("Apple Chancery", 24)
+
+        tkinter.Label(self, text="Ability", font=self.font).grid(row=1, column=0, sticky=tkinter.W)
+        tkinter.Label(self, text = "Hit Points", font=self.font).grid(row = 2, column = 0, sticky = tkinter.W)
+        tkinter.Label(self, text="Dexterity", font=self.font).grid(row = 3, column = 0, sticky = tkinter.W)
+        tkinter.Label(self, text="Strength",font=self.font).grid(row = 4, column = 0, sticky = tkinter.W)
+
 
         self.character = tkinter.StringVar()
         self.character.set(None)
@@ -49,15 +51,16 @@ class Screen_character_selector (tkinter.Frame):
         otherthing = 0
         anotherthing = 1
         for c in self.char_list.character_list:
-            tkinter.Radiobutton(self, text = c.name, variable=self.character, value=value).grid(row = 0, column = otherthing, sticky = tkinter.W)
+            tkinter.Radiobutton(self, text = c.name, variable=self.character, value=value, font=self.font).grid(row = 0, column = otherthing, sticky = tkinter.E)
             imageSmall = tkinter.PhotoImage(file="images/"+ c.small_image)
             w = tkinter.Label(self, image=imageSmall,)
             w.photo = imageSmall
             w.grid(row = 0, column = anotherthing, sticky = tkinter.W)
-            tkinter.Label(self, text = c.hit_points).grid(row = 1, column = anotherthing)
-            tkinter.Label(self, text = c.dexterity).grid(row = 2, column = anotherthing)
-            tkinter.Label(self, text = c.strength).grid(row = 3, column = anotherthing)
-            tkinter.Label(self, text= c.ability).grid(row = 4, column = anotherthing)
+            tkinter.Label(self, text=c.ability, font=self.font).grid(row=1, column=anotherthing)
+            tkinter.Label(self, text = c.hit_points, font=self.font).grid(row = 2, column = anotherthing)
+            tkinter.Label(self, text = c.dexterity,font=self.font).grid(row = 3, column = anotherthing)
+            tkinter.Label(self, text = c.strength, font=self.font).grid(row = 4, column = anotherthing)
+
             column += 1
             value += 1
             otherthing +=2
