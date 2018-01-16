@@ -23,6 +23,30 @@ class Character (object):
         self.attack3 = attack3
         self.attack4 = attack4
 
+    def Shank (self, enemy):
+        total_dex = self.dexterity - 10 + enemy.dexterity
+        hit_attempt = random.randrange(0, total_dex)
+        if (hit_attempt <= self.dexterity - 10):
+            damage = random.randrange(self.strength, self.strength + 15)
+            enemy.hit_points -= damage
+            result = self.name + " hits " + enemy.name + " causing " + str(damage) + " damage."
+        else:
+            result = self.name + " misses " + enemy.name + "."
+
+        return result
+
+    def Bite (self, enemy):
+        total_dex = self.dexterity - 15 + enemy.dexterity
+        hit_attempt = random.randrange(0, total_dex)
+        if (hit_attempt <= self.dexterity - 15):
+            damage = random.randrange(self.strength, self.strength + 20)
+            enemy.hit_points -= damage
+            result = self.name + " hits " + enemy.name + " causing " + str(damage) + " damage."
+        else:
+            result = self.name + " misses " + enemy.name + "."
+
+        return result
+
     def attack (self, enemy):
         '''
         In this method, self attempts to attack the enemy.  First, the method determines if
@@ -71,7 +95,8 @@ class CharacterList (object):
         for line in text_file:
             line = line.strip()
             my_fields = line.split(", ")
-            character = Character (my_fields[0], int(my_fields[1]), int(my_fields[2]), int(my_fields[3]), my_fields[4], my_fields[5], my_fields[6], my_fields[7], my_fields[8], my_fields[9], my_fields[10])
+            character = Character (my_fields[0], int(my_fields[1]), int(my_fields[2]), int(my_fields[3]), my_fields[4],
+                                   my_fields[5], my_fields[6], my_fields[7], my_fields[8], my_fields[9], my_fields[10])
             self.character_list.append(character)
     
     def print_list (self):
