@@ -22,7 +22,7 @@ class Character (object):
         self.attack2 = attack2
         self.attack3 = attack3
 
-    def Shank (self, enemy):
+    def back_stab (self, enemy):
         total_dex = self.dexterity - 10 + enemy.dexterity
         hit_attempt = random.randrange(0, total_dex)
         if (hit_attempt <= self.dexterity - 10):
@@ -34,7 +34,19 @@ class Character (object):
 
         return result
 
-    def Bite (self, enemy):
+    def axe_blow (self, enemy):
+        total_dex = self.dexterity - 15 + enemy.dexterity
+        hit_attempt = random.randrange(0, total_dex)
+        if (hit_attempt <= self.dexterity - 15):
+            damage = random.randrange(self.strength, self.strength + 20)
+            enemy.hit_points -= damage
+            result = self.name + " hits " + enemy.name + " causing " + str(damage) + " damage."
+        else:
+            result = self.name + " misses " + enemy.name + "."
+
+        return result
+
+    def bite (self, enemy):
         total_dex = self.dexterity - 15 + enemy.dexterity
         hit_attempt = random.randrange(0, total_dex)
         if (hit_attempt <= self.dexterity - 15):
