@@ -23,7 +23,7 @@ class Character (object):
         self.attack3 = attack3
         self.attack4 = attack4
 
-    def Shank (self, enemy):
+    def Back_Stab (self, enemy):
         total_dex = self.dexterity - 10 + enemy.dexterity
         hit_attempt = random.randrange(0, total_dex)
         if (hit_attempt <= self.dexterity - 10):
