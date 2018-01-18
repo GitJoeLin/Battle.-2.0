@@ -22,7 +22,7 @@ class Character (object):
         self.attack2 = attack2
         self.attack3 = attack3
 
-    def back_stab (self, enemy):
+    def bow_and_arrow (self, enemy):
         total_dex = self.dexterity - 10 + enemy.dexterity
         hit_attempt = random.randrange(0, total_dex)
         if (hit_attempt <= self.dexterity - 10):
@@ -58,28 +58,106 @@ class Character (object):
 
         return result
 
-    def attack (self, enemy):
-        '''
-        In this method, self attempts to attack the enemy.  First, the method determines if
-        a hit occurs using randomness.  If the opponents had the same dexterity, the probability
-        of a hit would be 50%.  If the dexterity of self is higher than that of enemy, the probability
-        of a hit increases.  If the dexterity of self is lower than that of enemy, the probability
-        of a hit decreases.  The exact implementation of this probability is up to you, but
-        make it as fair as possible.
-
-        If a hit occurs, hit_points damage should be a random number between 0 and the self.strength.
-
-        The method should then print the result of the attack to the user.
-        '''
-
-        total_dex = self.dexterity + enemy.dexterity
-        hit_attempt = random.randrange(0,total_dex)
-        if (hit_attempt<=self.dexterity):
-            damage = random.randrange (self.strength - 20, self.strength)
+    def sword_slash (self, enemy):
+        total_dex = self.dexterity - 10 + enemy.dexterity
+        hit_attempt = random.randrange(0, total_dex)
+        if (hit_attempt <= self.dexterity - 10):
+            damage = random.randrange(self.strength, self.strength + 15)
             enemy.hit_points -= damage
-            result = self.name + " hits " + enemy.name +" causing " + str(damage) + " damage."
+            result = self.name + " hits " + enemy.name + " causing " + str(damage) + " damage."
         else:
             result = self.name + " misses " + enemy.name + "."
+
+        return result
+
+    def fireball (self, enemy):
+        total_dex = self.dexterity - 10 + enemy.dexterity
+        hit_attempt = random.randrange(0, total_dex)
+        if (hit_attempt <= self.dexterity - 10):
+            damage = random.randrange(self.strength, self.strength + 40)
+            enemy.hit_points -= damage
+            result = self.name + " hits " + enemy.name + " causing " + str(damage) + " damage."
+        else:
+            result = self.name + " misses " + enemy.name + "."
+
+        return result
+
+    def war_cry (self, enemy):
+        increase_strength = random.randint(10, 15)
+        self.strength += increase_strength
+
+    def club_smash (self, enemy):
+        total_dex = self.dexterity + enemy.dexterity
+        hit_attempt = random.randrange(0, total_dex)
+        if (hit_attempt <= self.dexterity):
+            damage = random.randrange(self.strength - 5, self.strength)
+            enemy.hit_points -= damage
+            result = self.name + " hits " + enemy.name + " causing " + str(damage) + " damage."
+        else:
+            result = self.name + " misses " + enemy.name + "."
+
+        return result
+
+    def back_stab (self, enemy):
+        total_dex = self.dexterity + enemy.dexterity
+        hit_attempt = random.randrange(0, total_dex)
+        if (hit_attempt <= self.dexterity):
+            damage = random.randrange(self.strength - 5, self.strength)
+            enemy.hit_points -= damage
+            result = self.name + " hits " + enemy.name + " causing " + str(damage) + " damage."
+        else:
+            result = self.name + " misses " + enemy.name + "."
+
+        return result
+
+    def hammer_swing (self, enemy):
+        total_dex = self.dexterity + enemy.dexterity
+        hit_attempt = random.randrange(0, total_dex)
+        if (hit_attempt <= self.dexterity):
+            damage = random.randrange(self.strength - 5, self.strength)
+            enemy.hit_points -= damage
+            result = self.name + " hits " + enemy.name + " causing " + str(damage) + " damage."
+        else:
+            result = self.name + " misses " + enemy.name + "."
+
+        return result
+
+    def stab (self, enemy):
+        total_dex = self.dexterity + enemy.dexterity
+        hit_attempt = random.randrange(0, total_dex)
+        if (hit_attempt <= self.dexterity):
+            damage = random.randrange(self.strength - 5, self.strength)
+            enemy.hit_points -= damage
+            result = self.name + " hits " + enemy.name + " causing " + str(damage) + " damage."
+        else:
+            result = self.name + " misses " + enemy.name + "."
+
+        return result
+
+    def arcane_blast (self, enemy):
+        total_dex = self.dexterity + enemy.dexterity
+        hit_attempt = random.randrange(0, total_dex)
+        if (hit_attempt <= self.dexterity):
+            damage = random.randrange(self.strength + 30, self.strength)
+            enemy.hit_points -= damage
+            result = self.name + " hits " + enemy.name + " causing " + str(damage) + " damage."
+        else:
+            result = self.name + " misses " + enemy.name + "."
+
+        return result
+
+    def sneak_attack (self, enemy):
+        total_dex = self.dexterity + 10 + enemy.dexterity
+        hit_attempt = random.randrange(0, total_dex)
+        if (hit_attempt <= self.dexterity + 10):
+            damage = random.randrange(self.strength - 5, self.strength)
+            enemy.hit_points -= damage
+            result = self.name + " hits " + enemy.name + " causing " + str(damage) + " damage."
+        else:
+            result = self.name + " misses " + enemy.name + "."
+        chance = random.randint(0, 100)
+        if chance < 25:
+            self.dexterity += random.randint(3, 7)
 
         return result
 
