@@ -1,5 +1,5 @@
-Orc, 420, 80, 30, Exhaustion, orc_100.gif, orc_300.gif, Club Smash, Bite, War Cry
-Elf, 340, 45, 90, Super Speed, elf_100.gif, elf_300.gif, Bow and Arrow, Back Stab, Sneak Attack
-Dwarf, 380, 65, 65, Armor, dwarf_100.gif, dwarf_300.gif, Hammer Swing, Axe Blow, Headbutt
-Dark Knight, 360, 55, 70, Dark Dimension, human_100.gif, human_300.gif, Stab, Sword Slash, Shield Bash
-Wizard, 300, 30, 80, Arcane Magic, wizard_100.gif, wizard_300.gif, Arcane Blast, Fireball, Electrify
+Orc, 420, 80, 30, Exhaustion, orc_100.gif, orc_300.gif, Club Smash, Bite, War Cry, orc_300_stun.gif
+Elf, 340, 45, 90, Super Speed, elf_100.gif, elf_300.gif, Back Stab, Bow and Arrow, Sneak Attack, elf_300_stun.gif
+Dwarf, 380, 65, 65, Armor, dwarf_100.gif, dwarf_300.gif, Hammer Swing, Axe Blow, Headbutt, dwarf_300_stun.gif
+Dark Knight, 360, 55, 70, Dark Dimension, human_100.gif, human_300.gif, Stab, Sword Slash, Shield Bash, human_300_stun.gif
+Wizard, 300, 30, 80, Arcane Magic, wizard_100.gif, wizard_300.gif, Arcane Blast, Fireball, Electrify, wizard_300_stun.gif
