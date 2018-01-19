@@ -1,4 +1,5 @@
 import tkinter
+import random
 
 class Screen_Battle (tkinter.Frame):
     def __init__ (self, master, player1, player2, call_on_next):
@@ -23,11 +24,15 @@ class Screen_Battle (tkinter.Frame):
         This method creates all of the widgets for the battle page.
         '''
         self.font = ("Apple Chancery", 24)
-        self.button = tkinter.Button(self, text = "Attack", command = self.attack_clicked, fg = "red", bg = "black").grid(row = 0, column = 0)
-        self.atk1 = tkinter.Label(self, text = self.player1.attack1)
-        self.atk1.grid(row = 1, column = 1)
+
+        #self.button = tkinter.Button(self, text = "Attack", command = self.attack_clicked, fg = "red", bg = "black").grid(row = 0, column = 0)
+
+
+        self.atk1 = tkinter.Button(self, text = self.player1.attack1, command=self.attack1_clicked)
+        self.atk1.grid(row = 1, column = 0)
         self.atk2 = tkinter.Label(self, text = "")
         self.atk2.grid(row = 2, column = 1)
+
         self.end = tkinter.Label(self, text = "")
         self.end.grid(row = 3, column = 1)
         tkinter.Label(self, text = "You", font=self.font).grid(row = 5, column = 0)
@@ -45,7 +50,7 @@ class Screen_Battle (tkinter.Frame):
         self.enemy = tkinter.Label(self, text = str(self.player2.hit_points) + "/" + str(self.player2_max_hp) + " HP")
         self.enemy.grid(row = 6, column = 1)
         
-    def attack_clicked(self):
+    def attack1_clicked(self):
         ''' This method is called when the user presses the "Attack" button.
             
             This method does the following:
@@ -54,29 +59,45 @@ class Screen_Battle (tkinter.Frame):
             3) Determines if there is a victor.
             4) If there is a victor, removes that Attack button and replaces it with an Exit button.     
         '''        
-        a1 = self.player1.attack(self.player2)
-        a2 = self.player2.attack(self.player1)
+        if self.player1.attack1 == "Back Stab":
+            a1 = self.player1.back_stab(self.player2)
+            a2 = self.player2.back_stab(self.player1)
+        elif self.player1.attack1 == "Club Smash":
+            a1 = self.player1.club_smash(self.player2)
+            a2 = self.player2.club_smash(self.player1)
+        elif self.player1.attack1 == "Hammer Swing":
+            a1 = self.player1.hammer_swing(self.player2)
+            a2 = self.player2.hammer_swing(self.player1)
+        elif self.player1.attack1 == "Stab":
+            a1 = self.player1.stab(self.player2)
+            a2 = self.player2.stab(self.player1)
+        elif self.player1.attack1 == "Arcane Blast":
+            a1 = self.player1.arcane_blast(self.player2)
+            a2 = self.player2.arcane_blast(self.player1)
+
+        #enemy_attack =
+
 
         if self.player1.hit_points <= 0 and self.player2.hit_points > 0:
             self.player1.hit_points = 0
             self.end["text"] = str(self.player2.name) + " is victorious!"
             self.button = tkinter.Button(self, text = "Exit", command = self.exit_clicked, fg = "red", bg = "black", width = 10) \
-            .grid(row = 0, column = 0)
+            .grid(row = 0, column = 1)
         elif self.player2.hit_points <= 0 and self.player1.hit_points > 0:
             self.player2.hit_points = 0
             self.end["text"] = str(self.player1.name) + " is victorious!"
             self.button = tkinter.Button(self, text = "Exit", command = self.exit_clicked, fg = "red", bg = "black", width = 10) \
-            .grid(row = 0, column = 0)
+            .grid(row = 0, column = 1)
         elif self.player1.hit_points <= 0 and self.player2.hit_points <= 0:
             self.player1.hit_points = 0
             self.player2.hit_points = 0
             self.end["text"] = "It's a tie!"
             self.button = tkinter.Button(self, text = "Exit", command = self.exit_clicked, fg = "red", bg = "black", width = 10) \
-            .grid(row = 0, column = 0)
+            .grid(row = 0, column = 1)
 
         self.you["text"] = str(self.player1.hit_points) + "/" + str(self.player1_max_hp) + " HP"
         self.enemy["text"] = str(self.player2.hit_points) + "/" + str(self.player2_max_hp) + " HP"
-        self.atk1["text"] = a1
+        tkinter.Label(self, text = a1).grid(row = 0, column = 1)
         self.atk2["text"] = a2
 
 
