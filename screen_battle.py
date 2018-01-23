@@ -86,12 +86,52 @@ class Screen_Battle (tkinter.Frame):
 
         enemy_attack = random.randint(0, 2)
 
-        if enemy_attack == 0:
-            a2 = self.player2.attack1(self.player1)
-        elif enemy_attack == 1:
-            a2 = self.player2.attack2(self.player1)
-        elif enemy_attack == 2:
-            a2 = self.player2.attack3(self.player1)
+        if self.player2.name == "Orc":
+
+            if enemy_attack == 0:
+                a2 = self.player2.club_smash(self.player1)
+            elif enemy_attack == 1:
+                a2 = self.player2.bite(self.player1)
+            elif enemy_attack == 2:
+                a2 = self.player2.war_cry(self.player1)
+
+        elif self.player2.name == "Elf":
+
+            if enemy_attack == 0:
+                a2 = self.player2.back_stab(self.player1)
+            elif enemy_attack == 1:
+                a2 = self.player2.bow_and_arrow(self.player1)
+            elif enemy_attack == 2:
+                a2 = self.player2.sneak_attack(self.player1)
+
+        elif self.player2.name == "Dwarf":
+
+            if enemy_attack == 0:
+                a2 = self.player2.hammer_swing(self.player1)
+            elif enemy_attack == 1:
+                a2 = self.player2.axe_blow(self.player1)
+            elif enemy_attack == 2:
+                a2 = self.player2.headbutt(self.player1)
+
+        elif self.player2.name == "Dark Knight":
+
+            if enemy_attack == 0:
+                a2 = self.player2.stab(self.player1)
+            elif enemy_attack == 1:
+                a2 = self.player2.sword_slash(self.player1)
+            elif enemy_attack == 2:
+                a2 = self.player2.shield_bash(self.player1)
+
+        elif self.player2.name == "Wizard":
+
+            if enemy_attack == 0:
+                a2 = self.player2.acrane_blast(self.player1)
+            elif enemy_attack == 1:
+                a2 = self.player2.fireball(self.player1)
+            elif enemy_attack == 2:
+                a2 = self.player2.electrify(self.player1)
+
+
 
 
         if self.player1.hit_points <= 0 and self.player2.hit_points > 0:
