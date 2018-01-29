@@ -35,7 +35,7 @@ class Screen_character_selector (tkinter.Frame):
         '''
 
 
-        self.font = ("Apple Chancery", 24)
+        self.font = ("Apple Chancery", 18)
 
         tkinter.Label(self, text="Ability", font=self.font).grid(row=1, column=0, sticky=tkinter.W)
         tkinter.Label(self, text = "Hit Points", font=self.font).grid(row = 2, column = 0, sticky = tkinter.W)
