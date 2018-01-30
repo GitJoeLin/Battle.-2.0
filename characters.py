@@ -33,13 +33,13 @@ class Character (object):
             if enemy.ability == "Armor" and ability < 20:
                 damage = random.randrange(self.strength + 5, self.strength + 15)
                 enemy.hit_points -= int(damage) * 0.8
-                result = self.name + " hits " + enemy.name + " causing " + str(damage) + " damage."
+                result = self.name + " used Bow and Arrow on " + enemy.name + " causing " + str(damage) + " damage."
             else:
                 damage = random.randrange(self.strength + 5, self.strength + 15)
                 enemy.hit_points -= damage
-                result = self.name + " hits " + enemy.name + " causing " + str(damage) + " damage."
+                result = self.name + " used Bow and Arrow on  " + enemy.name + " causing " + str(damage) + " damage."
         else:
-            result = self.name + " misses " + enemy.name + "."
+            result = self.name + " missed " + enemy.name + "."
 
         return result
 
@@ -49,7 +49,7 @@ class Character (object):
         if (hit_attempt <= self.dexterity - 15):
             damage = random.randrange(self.strength + 5, self.strength + 20)
             enemy.hit_points -= damage
-            result = self.name + " hits " + enemy.name + " causing " + str(damage) + " damage."
+            result = self.name + " used Axe Blow on  " + enemy.name + " causing " + str(damage) + " damage."
         else:
             result = self.name + " misses " + enemy.name + "."
 
@@ -61,7 +61,7 @@ class Character (object):
         if (hit_attempt <= self.dexterity - 15):
             damage = random.randrange(self.strength + 5, self.strength + 20)
             enemy.hit_points -= damage
-            result = self.name + " hits " + enemy.name + " causing " + str(damage) + " damage."
+            result = self.name + " used Bite on " + enemy.name + " causing " + str(damage) + " damage."
         else:
             result = self.name + " misses " + enemy.name + "."
 
@@ -76,7 +76,7 @@ class Character (object):
         if (hit_attempt <= self.dexterity - 10):
             damage = random.randrange(self.strength + 5, self.strength + 15)
             enemy.hit_points -= damage
-            result = self.name + " hits " + enemy.name + " causing " + str(damage) + " damage."
+            result = self.name + " used Sword Slash on " + enemy.name + " causing " + str(damage) + " damage."
         else:
             result = self.name + " misses " + enemy.name + "."
 
@@ -84,11 +84,11 @@ class Character (object):
 
     def fireball (self, enemy):
         total_dex = self.dexterity - 10 + enemy.dexterity
-        hit_attempt = random.randrange(0, total_dex)
+        hit_attempt = random.randint(0, total_dex)
         if (hit_attempt <= self.dexterity - 10):
-            damage = random.randrange(self.strength + 25, self.strength + 40)
+            damage = random.choice(self.strength + 25, self.strength + 40)
             enemy.hit_points -= damage
-            result = self.name + " hits " + enemy.name + " causing " + str(damage) + " damage."
+            result = self.name + " used Fireball on " + enemy.name + " causing " + str(damage) + " damage."
         else:
             result = self.name + " misses " + enemy.name + "."
 
@@ -97,6 +97,7 @@ class Character (object):
     def war_cry (self, enemy):
         increase_strength = random.randint(10, 15)
         self.strength += increase_strength
+        result = "Orc's strength increased!"
 
     def club_smash (self, enemy):
         total_dex = self.dexterity + enemy.dexterity
@@ -104,7 +105,7 @@ class Character (object):
         if (hit_attempt <= self.dexterity):
             damage = random.randrange(self.strength - 5, self.strength)
             enemy.hit_points -= damage
-            result = self.name + " hits " + enemy.name + " causing " + str(damage) + " damage."
+            result = self.name + " used Club Smash on " + enemy.name + " causing " + str(damage) + " damage."
         else:
             result = self.name + " misses " + enemy.name + "."
 
@@ -119,7 +120,7 @@ class Character (object):
         if (hit_attempt <= self.dexterity):
             damage = random.randrange(self.strength - 5, self.strength)
             enemy.hit_points -= damage
-            result = self.name + " hits " + enemy.name + " causing " + str(damage) + " damage."
+            result = self.name + " used Back Stab on " + enemy.name + " causing " + str(damage) + " damage."
         else:
             result = self.name + " misses " + enemy.name + "."
 
@@ -131,7 +132,7 @@ class Character (object):
         if (hit_attempt <= self.dexterity):
             damage = random.randrange(self.strength - 5, self.strength)
             enemy.hit_points -= damage
-            result = self.name + " hits " + enemy.name + " causing " + str(damage) + " damage."
+            result = self.name + " used Hammer Swing on " + enemy.name + " causing " + str(damage) + " damage."
         else:
             result = self.name + " misses " + enemy.name + "."
 
@@ -146,7 +147,7 @@ class Character (object):
         if (hit_attempt <= self.dexterity):
             damage = random.randrange(self.strength - 5, self.strength)
             enemy.hit_points -= damage
-            result = self.name + " hits " + enemy.name + " causing " + str(damage) + " damage."
+            result = self.name + " used Stab on " + enemy.name + " causing " + str(damage) + " damage."
         else:
             result = self.name + " misses " + enemy.name + "."
 
@@ -156,9 +157,9 @@ class Character (object):
         total_dex = self.dexterity + enemy.dexterity
         hit_attempt = random.randrange(0, total_dex)
         if (hit_attempt <= self.dexterity):
-            damage = random.randrange(self.strength + 30, self.strength + 15)
+            damage = random.choice(self.strength + 30, self.strength + 15)
             enemy.hit_points -= damage
-            result = self.name + " hits " + enemy.name + " causing " + str(damage) + " damage."
+            result = self.name + " used Arcane Blast on " + enemy.name + " causing " + str(damage) + " damage."
         else:
             result = self.name + " misses " + enemy.name + "."
 
@@ -173,12 +174,14 @@ class Character (object):
         if (hit_attempt <= self.dexterity + 10):
             damage = random.randrange(self.strength - 5, self.strength)
             enemy.hit_points -= damage
-            result = self.name + " hits " + enemy.name + " causing " + str(damage) + " damage."
+            result = self.name + " used Sneak Attack on " + enemy.name + " causing " + str(damage) + " damage."
         else:
             result = self.name + " misses " + enemy.name + "."
         chance = random.randint(0, 100)
         if chance < 25:
-            self.dexterity += random.randint(3, 7)
+            num = random.randint(3, 7)
+            self.dexterity += num
+            result += ". Elf's dexterity was raised by " + num
 
         return result
 
@@ -191,12 +194,16 @@ class Character (object):
         if (hit_attempt <= self.dexterity - 5):
             damage = random.randrange(self.strength + 10, self.strength)
             enemy.hit_points -= damage
-            result = self.name + " hits " + enemy.name + " causing " + str(damage) + " damage."
+            result = self.name + " used Crippling Blow on " + enemy.name + " causing " + str(damage) + " damage."
         else:
             result = self.name + " misses " + enemy.name + "."
         chance = random.randint(0, 100)
         if chance < 25:
-            enemy.dexterity -= random.randint(3, 7)
+            num = random.randint(3, 7)
+            enemy.dexterity -= num
+            result += ". " + enemy.name + "'s dexterity fell by " + num
+
+        return result
 
     def electrify (self, enemy):
         total_dex = self.dexterity - 10 + enemy.dexterity
@@ -204,12 +211,16 @@ class Character (object):
         if (hit_attempt <= self.dexterity - 10):
             damage = random.randrange(self.strength + 35, self.strength + 20)
             enemy.hit_points -= damage
-            result = self.name + " hits " + enemy.name + " causing " + str(damage) + " damage."
+            result = self.name + " used Electrify on " + enemy.name + " causing " + str(damage) + " damage."
         else:
             result = self.name + " misses " + enemy.name + "."
         chance = random.randint(0, 100)
         if chance < 25:
-            enemy.strength -= random.randint(3, 7)
+            num = random.randint(3, 7)
+            enemy.strength -= num
+            result += ". " + enemy.name + "'s strength fell by " + num
+
+        return result
 
     def headbutt (self, enemy):
         total_dex = self.dexterity - 10 + enemy.dexterity
@@ -219,17 +230,19 @@ class Character (object):
             if (hit_attempt <= self.dexterity - 10):
                 damage = random.randrange(self.strength - 5, self.strength)
                 enemy.hit_points -= damage
-                result = self.name + " hits " + enemy.name + " causing " + str(damage) + " damage."
+                result = self.name + " used Headbutt on " + enemy.name + " causing " + str(damage) + " damage."
             else:
                 result = self.name + " misses " + enemy.name + "."
         elif damage_chance < 50:
             if (hit_attempt <= self.dexterity - 10):
                 damage = random.randrange(self.strength + 30, self.strength + 20)
                 enemy.hit_points -= damage
-                result = self.name + " hits " + enemy.name + " causing " + str(damage) + " damage."
+                result = self.name + " used Headbutt on " + enemy.name + " causing " + str(damage) + " damage."
             else:
                 result = self.name + " misses " + enemy.name + "."
-        chance = random.randint(0, 100)
+
+
+        return result
 
     def die (self):
         ''' Prints a death message. '''

@@ -35,18 +35,24 @@ class Screen_Battle (tkinter.Frame):
 
         self.end = tkinter.Label(self, text = "")
         self.end.grid(row = 3, column = 1)
-        tkinter.Label(self, text = "You", font=self.font).grid(row = 0, column = 0)
-        tkinter.Label(self, text = "Computer",font=self.font).grid(row = 0, column = 1)
+
+        tkinter.Label(self, text = "You", font=self.font).grid(row = 2, column = 0)
+
+        tkinter.Label(self, text = "Computer",font=self.font).grid(row = 2, column = 1)
+
         imageLarge = tkinter.PhotoImage(file="images/" + self.player1.large_image)
         w = tkinter.Label(self, image=imageLarge, )
         w.photo = imageLarge
         w.grid(row = 4, column=0, sticky=tkinter.W)
+
         imageLarge2 = tkinter.PhotoImage(file="images/" + self.player2.large_image)
         x = tkinter.Label(self, image=imageLarge2, )
         x.photo = imageLarge2
         x.grid(row = 4, column=1, sticky=tkinter.W)
+
         self.you = tkinter.Label(self, text = str(self.player1.hit_points) + "/" + str(self.player1_max_hp) + " HP")
         self.you.grid(row = 6, column = 0)
+
         self.enemy = tkinter.Label(self, text = str(self.player2.hit_points) + "/" + str(self.player2_max_hp) + " HP")
         self.enemy.grid(row = 6, column = 1)
         
@@ -60,29 +66,37 @@ class Screen_Battle (tkinter.Frame):
             4) If there is a victor, removes that Attack button and replaces it with an Exit button.     
         '''
 
+        if self.player1.attack2 == "Bite":
+            a1 = self.player1.bite(self.player2)
 
+        if self.player1.attack2 == "Bow and Arrow":
+            a1 = self.player1.bow_and_arrow(self.player2)
+
+        if self.player1.attack2 == "Axe Blow":
+            a1 = self.player1.axe_blow(self.player2)
+
+        if self.player1.attack2 == "Sword Slash":
+            a1 = self.player1.sword_slash(self.player2)
+
+        if self.player1.attack2 == "Fireball":
+            a1 = self.player1.fireball(self.player2)
 
         if self.player1.attack1 == "Back Stab":
             a1 = self.player1.back_stab(self.player2)
-        elif self.player1.attack1 == "Club Smash":
+
+        if self.player1.attack1 == "Club Smash":
             a1 = self.player1.club_smash(self.player2)
-        elif self.player1.attack1 == "Hammer Swing":
+
+        if self.player1.attack1 == "Hammer Swing":
             a1 = self.player1.hammer_swing(self.player2)
-        elif self.player1.attack1 == "Stab":
+
+        if self.player1.attack1 == "Stab":
             a1 = self.player1.stab(self.player2)
-        elif self.player1.attack1 == "Arcane Blast":
+
+        if self.player1.attack1 == "Arcane Blast":
             a1 = self.player1.arcane_blast(self.player2)
 
-        if self.player1.attack2 == "Bite":
-            a1 = self.player1.bite(self.player2)
-        elif self.player1.attack2 == "Bow and Arrow":
-            a1 = self.player1.bow_and_arrow(self.player2)
-        elif self.player1.attack2 == "Axe Blow":
-            a1 = self.player1.axe_blow(self.player2)
-        elif self.player1.attack2 == "Sword Slash":
-            a1 = self.player1.sword_slash(self.player2)
-        elif self.player1.attack2 == "Fireball":
-            a1 = self.player1.fireball(self.player2)
+
 
         enemy_attack = random.randint(0, 2)
 
@@ -125,7 +139,7 @@ class Screen_Battle (tkinter.Frame):
         elif self.player2.name == "Wizard":
 
             if enemy_attack == 0:
-                a2 = self.player2.acrane_blast(self.player1)
+                a2 = self.player2.arcane_blast(self.player1)
             elif enemy_attack == 1:
                 a2 = self.player2.fireball(self.player1)
             elif enemy_attack == 2:
@@ -154,7 +168,7 @@ class Screen_Battle (tkinter.Frame):
         self.you["text"] = str(self.player1.hit_points) + "/" + str(self.player1_max_hp) + " HP"
         self.enemy["text"] = str(self.player2.hit_points) + "/" + str(self.player2_max_hp) + " HP"
         tkinter.Label(self, text = a1).grid(row = 0, column = 1)
-        self.atk2["text"] = a2
+        tkinter.Label(self, text = a2).grid(row = 1, column = 1)
 
 
 
