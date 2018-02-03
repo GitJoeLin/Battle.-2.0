@@ -72,7 +72,7 @@ class Screen_Battle (tkinter.Frame):
             4) If there is a victor, removes that Attack button and replaces it with an Exit button.
         '''
 
-
+        self.font2 = ("SignPainter", 70)
         self.attack_label1.destroy()
         self.attack_label2.destroy()
 
@@ -165,18 +165,21 @@ class Screen_Battle (tkinter.Frame):
 
         if self.player1.hit_points <= 0 and self.player2.hit_points > 0:
             self.player1.hit_points = 0
-            self.end["text"] = str(self.player2.name) + " is victorious!"
+            self.end["text"] = str(self.player2.name) + " Is Victorious!"
+            self.end["font"] = self.font2
             self.button = tkinter.Button(self, text = "Exit", command = self.exit_clicked, fg = "red", bg = "black", width = 10)
             self.button.grid(row = 9, column = 1)
         elif self.player2.hit_points <= 0 and self.player1.hit_points > 0:
             self.player2.hit_points = 0
-            self.end["text"] = str(self.player1.name) + " is victorious!"
+            self.end["text"] = str(self.player1.name) + " Is Victorious!"
+            self.end["font"] = self.font2
             self.button = tkinter.Button(self, text = "Exit", command = self.exit_clicked, fg = "red", bg = "black", width = 10)
             self.button.grid(row = 9, column = 1)
         elif self.player1.hit_points <= 0 and self.player2.hit_points <= 0:
             self.player1.hit_points = 0
             self.player2.hit_points = 0
-            self.end["text"] = "It's a tie!"
+            self.end["text"] = "It's A Tie!"
+            self.end["font"] = self.font2
             self.button = tkinter.Button(self, text = "Exit", command = self.exit_clicked, fg = "red", bg = "black", width = 10)
             self.button.grid(row=9, column=1)
 
@@ -198,7 +201,7 @@ class Screen_Battle (tkinter.Frame):
             3) Determines if there is a victor.
             4) If there is a victor, removes that Attack button and replaces it with an Exit button.
         '''
-
+        self.font2 = ("SignPainter", 70)
         self.attack_label1.destroy()
         self.attack_label2.destroy()
 
@@ -250,7 +253,7 @@ class Screen_Battle (tkinter.Frame):
             elif enemy_attack == 1:
                 a2 = self.player2.bite(self.player1)
             elif enemy_attack == 2:
-                a2 = self.player2.war_cry(self)
+                a2 = self.player2.war_cry()
 
         elif self.player2.name == "Elf":
 
@@ -321,7 +324,7 @@ class Screen_Battle (tkinter.Frame):
             3) Determines if there is a victor.
             4) If there is a victor, removes that Attack button and replaces it with an Exit button.
         '''
-
+        self.font2 = ("SignPainter", 70)
         self.attack_label1.destroy()
         self.attack_label2.destroy()
 

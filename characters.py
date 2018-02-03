@@ -31,7 +31,7 @@ class Character (object):
         if hit_attempt <= self.dexterity - 10:
             if enemy.ability == "Armor":
                 damage = random.randrange(self.strength + 5, self.strength + 15)
-                enemy.hit_points -= int(damage) * 0.8
+                enemy.hit_points -= int(damage) * 0.5
                 result = self.name + " used Bow and Arrow on " + enemy.name + " causing " + str(damage) + " damage."
             else:
                 damage = random.randrange(self.strength + 5, self.strength + 15)
@@ -60,7 +60,7 @@ class Character (object):
         if (hit_attempt <= self.dexterity - 15):
             damage = random.randrange(self.strength + 5, self.strength + 20)
             if enemy.ability == "Armor":
-                damage *= 0.8
+                damage *= 0.5
                 enemy.hit_points -= damage
             else:
                 enemy.hit_points -= damage
@@ -81,7 +81,7 @@ class Character (object):
             list = [self.strength + 5, self.strength + 15]
             damage = random.choice(list)
             if enemy.ability == "Armor":
-                damage *= 0.8
+                damage *= 0.5
                 enemy.hit_points -= damage
             else:
                 enemy.hit_points -= damage
@@ -100,7 +100,7 @@ class Character (object):
             list = [self.strength + 25, self.strength + 40]
             damage = random.choice(list)
             if enemy.ability == "Armor":
-                damage *= 0.8
+                damage *= 0.5
                 enemy.hit_points -= damage
             else:
                 enemy.hit_points -= damage
@@ -111,8 +111,8 @@ class Character (object):
         return result
 
     def war_cry (self):
-        increase_strength = random.randint(10, 15)
-        self.strength += increase_strength
+        num = random.randint(10, 15)
+        self.strength += num
         result = "Orc's strength increased by " + str(num)
 
         return result
@@ -124,7 +124,7 @@ class Character (object):
             list = [self.strength - 5, self.strength]
             damage = random.choice(list)
             if enemy.ability == "Armor":
-                damage *= 0.8
+                damage *= 0.5
                 enemy.hit_points -= damage
             else:
                 enemy.hit_points -= damage
@@ -144,7 +144,7 @@ class Character (object):
         if (hit_attempt <= self.dexterity):
             damage = random.randrange(self.strength - 5, self.strength)
             if enemy.ability == "Armor":
-                damage *= 0.8
+                damage *= 0.5
                 enemy.hit_points -= damage
             else:
                 enemy.hit_points -= damage
@@ -162,7 +162,7 @@ class Character (object):
         if (hit_attempt <= self.dexterity):
             damage = random.randrange(self.strength - 5, self.strength)
             if enemy.ability == "Armor":
-                damage *= 0.8
+                damage *= 0.5
                 enemy.hit_points -= damage
             else:
                 enemy.hit_points -= damage
@@ -183,7 +183,7 @@ class Character (object):
             list = [self.strength - 5, self.strength]
             damage = random.choice(list)
             if enemy.ability == "Armor":
-                damage *= 0.8
+                damage *= 0.5
                 enemy.hit_points -= damage
             else:
                 enemy.hit_points -= damage
@@ -204,7 +204,7 @@ class Character (object):
             list = [thing, thing2]
             damage = random.choice(list)
             if enemy.ability == "Armor":
-                damage *= 0.8
+                damage *= 0.5
                 enemy.hit_points -= damage
             else:
                 enemy.hit_points -= damage
@@ -224,7 +224,7 @@ class Character (object):
         if (hit_attempt <= self.dexterity + 10):
             damage = random.randrange(self.strength - 5, self.strength)
             if enemy.ability == "Armor":
-                damage *= 0.8
+                damage *= 0.5
                 enemy.hit_points -= damage
             else:
                 enemy.hit_points -= damage
@@ -247,7 +247,7 @@ class Character (object):
         if (hit_attempt <= self.dexterity - 5):
             damage = random.randrange(self.strength + 10, self.strength)
             if enemy.ability == "Armor":
-                damage *= 0.8
+                damage *= 0.5
                 enemy.hit_points -= damage
             else:
                 enemy.hit_points -= damage
@@ -269,7 +269,7 @@ class Character (object):
             list = [self.strength + 35, self.strength+ 20]
             damage = random.choice(list)
             if enemy.ability == "Armor":
-                damage *= 0.8
+                damage *= 0.5
                 enemy.hit_points -= damage
             else:
                 enemy.hit_points -= damage
@@ -294,7 +294,7 @@ class Character (object):
                 list = [self.strength - 5, self.strength]
                 damage = random.choice(list)
                 if enemy.ability == "Armor":
-                    damage *= 0.8
+                    damage *= 0.5
                     enemy.hit_points -= damage
                 else:
                     enemy.hit_points -= damage
@@ -321,7 +321,7 @@ class Character (object):
                 list = [self.strength - 5, self.strength]
                 damage = random.choice(list)
                 if enemy.ability == "Armor":
-                    damage *= 0.8
+                    damage *= 0.5
                     enemy.hit_points -= damage
                 else:
                     enemy.hit_points -= damage
